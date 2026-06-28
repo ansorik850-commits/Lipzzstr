@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIPZZSTR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Orbitron',sans-serif;
+
+background:
+linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+min-height:100vh;
+
+overflow:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#9333ea;
+
+filter:blur(180px);
+
+opacity:.35;
+
+top:-120px;
+right:-120px;
+
+animation:glow 6s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+transform:translateY(35px);
+
+}
+
+}
+
+.box{
+
+width:92%;
+max-width:380px;
+
+background:rgba(18,18,25,.78);
+
+backdrop-filter:blur(12px);
+
+padding:30px;
+
+border-radius:28px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 0 35px rgba(168,85,247,.45);
+
+position:relative;
+
+z-index:2;
+
+}
+
+.logo{
+
+font-family:'Audiowide';
+
+font-size:36px;
+
+text-align:center;
+
+color:#fff;
+
+text-shadow:
+0 0 15px #9333ea,
+0 0 30px #ec4899;
+
+}
+
+.sub{
+
+margin-top:10px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#cfcfcf;
+
+}
+
+.menu{
+
+margin-top:28px;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px;
+
+}
+
+.btn{
+
+padding:16px;
+
+border:none;
+
+border-radius:16px;
+
+background:linear-gradient(90deg,#9333ea,#ec4899);
+
+font-family:'Audiowide';
+
+color:#fff;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+.popup{
+
+display:none;
+
+position:fixed;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:90%;
+max-width:340px;
+
+background:#171722;
+
+border:1px solid #9333ea;
+
+border-radius:22px;
+
+padding:22px;
+
+box-shadow:0 0 35px #9333ea;
+
+z-index:999;
+
+text-align:center;
+
+color:#fff;
+
+}
+
+.popup h2{
+
+font-family:'Audiowide';
+
+margin-bottom:15px;
+
+}
+
+.popup p{
+
+margin-bottom:20px;
+
+line-height:24px;
+
+word-break:break-word;
+
+}
+
+.popup button{
+
+width:100%;
+
+padding:14px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:15px;
+
+background:linear-gradient(90deg,#9333ea,#ec4899);
+
+color:#fff;
+
+font-family:'Audiowide';
+
+cursor:pointer;
+
+}
+
+.overlay{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.65);
+
+z-index:998;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="logo">LIPZZSTR</div>
+
+<div class="sub">DIGITAL STORE</div>
+
+<div class="menu">
+
+<button class="btn" onclick="openPopup('💰 DANA','0895324093842<br><br>Atas Nama : <b>Hernawati</b>','0895324093842')">
+💰 DANA
+</button>
+
+<button class="btn" onclick="openPopup('📢 SALURAN','https://whatsapp.com/channel/0029Vb8MxYUJf05ehUZeTJ16','https://whatsapp.com/channel/0029Vb8MxYUJf05ehUZeTJ16')">
+📢 SALURAN
+</button>
+
+<button class="btn" onclick="openPopup('🎵 TIKTOK','@lipzz.strr','@lipzz.strr')">
+🎵 TIKTOK
+</button>
+
+<button class="btn" onclick="openPopup('⭐ TIKTOK UTAMA','@lipzzstur1','@lipzzstur1')">
+⭐ TIKTOK UTAMA
+</button>
+
+</div>
+
+</div>
+
+<div id="overlay" class="overlay"></div>
+
+<div id="popup" class="popup">
+
+<h2 id="title"></h2>
+
+<p id="content"></p>
+
+<button onclick="copyText()">
+📋 COPY
+</button>
+
+<button onclick="closePopup()">
+❌ TUTUP
+</button>
+
+</div>
+
+<script>
+
+let dataCopy="";
+
+function openPopup(title,text,copy){
+
+document.getElementById("title").innerHTML=title;
+document.getElementById("content").innerHTML=text;
+
+dataCopy=copy;
+
+document.getElementById("overlay").style.display="block";
+document.getElementById("popup").style.display="block";
+
+}
+
+function closePopup(){
+
+document.getElementById("overlay").style.display="none";
+document.getElementById("popup").style.display="none";
+
+}
+
+function copyText(){
+
+navigator.clipboard.writeText(dataCopy);
+
+document.getElementById("content").innerHTML += "<br><br><span style='color:#22c55e;'>✔ Berhasil disalin</span>";
+
+}
+
+</script>
+
+</body>
+</html>
