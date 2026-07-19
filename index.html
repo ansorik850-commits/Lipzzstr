@@ -2,10 +2,16 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>LIPZZSTR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<title>AETHER Payment</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
@@ -13,240 +19,159 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
+background:#111;
+background:linear-gradient(to bottom,#2d2d2d,#111);
+color:#fff;
+min-height:100vh;
+}
 
-font-family:'Orbitron',sans-serif;
+.container{
+max-width:430px;
+margin:auto;
+padding:20px;
+}
 
-background:
-linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
-url("https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200");
+/* HEADER */
 
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
+.header{
+display:flex;
+justify-content:flex-end;
+gap:12px;
+margin-top:10px;
+margin-bottom:35px;
+}
 
+.icon{
+width:58px;
+height:58px;
+background:#fff;
+border-radius:18px;
 display:flex;
 justify-content:center;
 align-items:center;
-
-min-height:100vh;
-
-overflow:hidden;
-
-}
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-width:500px;
-height:500px;
-
-background:#9333ea;
-
-filter:blur(180px);
-
-opacity:.35;
-
-top:-120px;
-right:-120px;
-
-animation:glow 6s infinite alternate;
-
-}
-
-@keyframes glow{
-
-from{
-
-transform:translateY(-20px);
-
-}
-
-to{
-
-transform:translateY(35px);
-
-}
-
-}
-
-.box{
-
-width:92%;
-max-width:380px;
-
-background:rgba(18,18,25,.78);
-
-backdrop-filter:blur(12px);
-
-padding:30px;
-
-border-radius:28px;
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:0 0 35px rgba(168,85,247,.45);
-
+font-size:22px;
+color:#222;
 position:relative;
-
-z-index:2;
-
-}
-
-.logo{
-
-font-family:'Audiowide';
-
-font-size:36px;
-
-text-align:center;
-
-color:#fff;
-
-text-shadow:
-0 0 15px #9333ea,
-0 0 30px #ec4899;
-
-}
-
-.sub{
-
-margin-top:10px;
-
-text-align:center;
-
-font-size:13px;
-
-color:#cfcfcf;
-
-}
-
-.menu{
-
-margin-top:28px;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:14px;
-
-}
-
-.btn{
-
-padding:16px;
-
-border:none;
-
-border-radius:16px;
-
-background:linear-gradient(90deg,#9333ea,#ec4899);
-
-font-family:'Audiowide';
-
-color:#fff;
-
-cursor:pointer;
-
+box-shadow:0 10px 20px rgba(0,0,0,.25);
 transition:.25s;
-
-}
-
-.btn:hover{
-
-transform:scale(1.05);
-
-}
-.popup{
-
-display:none;
-
-position:fixed;
-
-left:50%;
-top:50%;
-
-transform:translate(-50%,-50%);
-
-width:90%;
-max-width:340px;
-
-background:#171722;
-
-border:1px solid #9333ea;
-
-border-radius:22px;
-
-padding:22px;
-
-box-shadow:0 0 35px #9333ea;
-
-z-index:999;
-
-text-align:center;
-
-color:#fff;
-
-}
-
-.popup h2{
-
-font-family:'Audiowide';
-
-margin-bottom:15px;
-
-}
-
-.popup p{
-
-margin-bottom:20px;
-
-line-height:24px;
-
-word-break:break-word;
-
-}
-
-.popup button{
-
-width:100%;
-
-padding:14px;
-
-margin-top:10px;
-
-border:none;
-
-border-radius:15px;
-
-background:linear-gradient(90deg,#9333ea,#ec4899);
-
-color:#fff;
-
-font-family:'Audiowide';
-
 cursor:pointer;
-
 }
 
-.overlay{
+.icon:active{
+transform:scale(.95);
+}
 
-display:none;
+.badge{
+position:absolute;
+top:6px;
+right:6px;
+width:18px;
+height:18px;
+background:#ff3b3b;
+color:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:10px;
+}
 
-position:fixed;
+/* PROFILE */
 
-inset:0;
+.profile{
+text-align:center;
+}
 
-background:rgba(0,0,0,.65);
+.avatar{
+width:135px;
+height:135px;
+margin:auto;
+border-radius:50%;
+overflow:hidden;
+border:5px solid #ddd;
+position:relative;
+}
 
-z-index:998;
+.avatar img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
+.verify{
+position:absolute;
+bottom:5px;
+right:5px;
+width:34px;
+height:34px;
+border-radius:50%;
+background:#2d7dff;
+display:flex;
+justify-content:center;
+align-items:center;
+border:3px solid white;
+}
+
+.verify i{
+color:#fff;
+font-size:13px;
+}
+
+.name{
+margin-top:18px;
+font-size:42px;
+font-weight:700;
+}
+
+.username{
+margin-top:6px;
+font-size:20px;
+color:#d7d7d7;
+}
+
+.desc{
+margin-top:20px;
+font-size:18px;
+line-height:1.6;
+color:#bfbfbf;
+padding:0 15px;
+}
+
+/* PAYMENT */
+
+.payment{
+margin-top:40px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.pay-btn{
+height:78px;
+background:#fff;
+border-radius:24px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+font-size:26px;
+font-weight:600;
+color:#222;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 12px 20px rgba(0,0,0,.2);
+}
+
+.pay-btn:active{
+transform:scale(.96);
+}
+
+.pay-btn i{
+font-size:28px;
 }
 
 </style>
@@ -255,84 +180,370 @@ z-index:998;
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<div class="logo">LIPZZSTR</div>
+<div class="header">
 
-<div class="sub">DIGITAL STORE</div>
+<div class="icon">
+<i class="fa-regular fa-bell"></i>
+<div class="badge">3</div>
+</div>
 
-<div class="menu">
-
-<button class="btn" onclick="openPopup('💰 DANA','0895324093842<br><br>Atas Nama : <b>Hernawati</b>','0895324093842')">
-💰 DANA
-</button>
-
-<button class="btn" onclick="openPopup('📢 SALURAN','https://whatsapp.com/channel/0029Vb8MxYUJf05ehUZeTJ16','https://whatsapp.com/channel/0029Vb8MxYUJf05ehUZeTJ16')">
-📢 SALURAN
-</button>
-
-<button class="btn" onclick="openPopup('🎵 TIKTOK','@lipzz.strr','@lipzz.strr')">
-🎵 TIKTOK
-</button>
-
-<button class="btn" onclick="openPopup('⭐ TIKTOK UTAMA','@lipzzstur1','@lipzzstur1')">
-⭐ TIKTOK UTAMA
-</button>
-
+<div class="icon">
+<i class="fa-solid fa-bars"></i>
 </div>
 
 </div>
 
-<div id="overlay" class="overlay"></div>
+<div class="profile">
+
+<div class="avatar">
+
+<img src="https://picsum.photos/300" id="profile">
+
+<div class="verify">
+<i class="fa-solid fa-check"></i>
+</div>
+
+</div>
+
+<h1 class="name">LIPZZ</h1>
+
+<div class="username">@LIPZZ_id</div>
+
+<div class="desc">
+Pilih metode pembayaran yang tersedia di bawah ini.<br>
+Aman • Cepat • Terpercaya
+</div>
+
+</div>
+
+<div class="payment">
+
+<div class="pay-btn">
+<i class="fa-solid fa-qrcode"></i>
+QRIS
+</div>
+
+<div class="pay-btn">
+<i class="fa-solid fa-wallet"></i>
+E-Wallet
+</div>
+
+<div class="pay-btn">
+<i class="fa-solid fa-building-columns"></i>
+Bank
+</div>
+
+<div class="pay-btn">
+<i class="fa-solid fa-mobile-screen"></i>
+Pulsa
+</div>
+
+</div>
+<!-- POPUP -->
 
 <div id="popup" class="popup">
 
-<h2 id="title"></h2>
+<div class="popup-box">
 
-<p id="content"></p>
+<span class="close" onclick="closePopup()">&times;</span>
 
-<button onclick="copyText()">
-📋 COPY
-</button>
-
-<button onclick="closePopup()">
-❌ TUTUP
-</button>
+<div id="popupContent"></div>
 
 </div>
 
+</div>
+
+<style>
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:999;
+backdrop-filter:blur(6px);
+}
+
+.popup-box{
+width:100%;
+max-width:370px;
+background:#1b1b1b;
+border-radius:22px;
+padding:25px;
+color:#fff;
+position:relative;
+animation:popup .25s ease;
+}
+
+@keyframes popup{
+from{
+transform:scale(.9);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.close{
+position:absolute;
+top:12px;
+right:18px;
+font-size:30px;
+cursor:pointer;
+}
+
+.popup-box img{
+width:100%;
+border-radius:14px;
+margin:15px 0;
+}
+
+.popup-box h2{
+text-align:center;
+margin-bottom:15px;
+}
+
+.popup-box p{
+margin:10px 0;
+text-align:center;
+font-size:17px;
+}
+
+.copy-btn{
+width:100%;
+height:50px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#2d7dff;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.toast{
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translateX(-50%);
+background:#1f1f1f;
+color:#fff;
+padding:12px 18px;
+border-radius:12px;
+font-size:15px;
+opacity:0;
+transition:.3s;
+z-index:9999;
+}
+
+</style>
+
 <script>
 
-let dataCopy="";
+const popup=document.getElementById("popup");
+const popupContent=document.getElementById("popupContent");
 
-function openPopup(title,text,copy){
-
-document.getElementById("title").innerHTML=title;
-document.getElementById("content").innerHTML=text;
-
-dataCopy=copy;
-
-document.getElementById("overlay").style.display="block";
-document.getElementById("popup").style.display="block";
-
+function openPopup(html){
+popupContent.innerHTML=html;
+popup.style.display="flex";
 }
 
 function closePopup(){
+popup.style.display="none";
+}
 
-document.getElementById("overlay").style.display="none";
-document.getElementById("popup").style.display="none";
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+
+let toast=document.createElement("div");
+
+toast.className="toast";
+
+toast.innerHTML="✓ Berhasil disalin";
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+toast.style.opacity="1";
+},20);
+
+setTimeout(()=>{
+toast.style.opacity="0";
+
+setTimeout(()=>{
+toast.remove();
+},300);
+
+},1800);
 
 }
 
-function copyText(){
+const btn=document.querySelectorAll(".pay-btn");
 
-navigator.clipboard.writeText(dataCopy);
+btn[0].onclick=()=>{
 
-document.getElementById("content").innerHTML += "<br><br><span style='color:#22c55e;'>✔ Berhasil disalin</span>";
+openPopup(`
+
+<h2>QRIS</h2>
+
+<img src="https://picsum.photos/500" alt="QRIS">
+
+<p>Scan QRIS di atas.</p>
+
+`);
 
 }
+
+btn[1].onclick=()=>{
+
+openPopup(`
+
+<h2>E-Wallet</h2>
+
+<p>DANA : 08123456789</p>
+
+<p>GoPay : 08123456789</p>
+
+<p>OVO : 08123456789</p>
+
+<button class="copy-btn" onclick="copyText('08123456789')">Copy Nomor</button>
+
+`);
+
+}
+
+btn[2].onclick=()=>{
+
+openPopup(`
+
+<h2>Bank</h2>
+
+<p>BCA : 1234567890</p>
+
+<p>BRI : 1234567890</p>
+
+<button class="copy-btn" onclick="copyText('1234567890')">Copy Rekening</button>
+
+`);
+
+}
+
+btn[3].onclick=()=>{
+
+openPopup(`
+
+<h2>Pulsa</h2>
+
+<p>Telkomsel : 08123456789</p>
+
+<p>XL : 08123456789</p>
+
+<button class="copy-btn" onclick="copyText('08123456789')">Copy Nomor</button>
+
+`);
+
+}
+
+popup.addEventListener("click",e=>{
+if(e.target===popup){
+closePopup();
+}
+});
 
 </script>
+<script>
+
+// Efek klik tombol payment
+document.querySelectorAll(".pay-btn").forEach(btn=>{
+
+btn.addEventListener("mousedown",()=>{
+
+btn.style.transform="scale(.96)";
+
+});
+
+btn.addEventListener("mouseup",()=>{
+
+btn.style.transform="scale(1)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="scale(1)";
+
+});
+
+});
+
+// Efek icon header
+document.querySelectorAll(".icon").forEach(icon=>{
+
+icon.addEventListener("mouseenter",()=>{
+
+icon.style.transform="rotate(8deg)";
+
+});
+
+icon.addEventListener("mouseleave",()=>{
+
+icon.style.transform="rotate(0deg)";
+
+});
+
+});
+
+// Loading halus
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="0";
+
+document.body.style.transition="opacity .45s";
+
+setTimeout(()=>{
+
+document.body.style.opacity="1";
+
+},80);
+
+});
+
+</script>
+
+<footer style="
+
+margin-top:45px;
+padding:25px 15px;
+
+text-align:center;
+
+color:#9a9a9a;
+
+font-size:14px;
+
+">
+
+<b style="color:#fff;">LIPZZ PAYMENT</b>
+
+<br><br>
+
+© 2026 All Rights Reserved
+
+</footer>
+
+</div>
 
 </body>
 </html>
